@@ -13,8 +13,7 @@
     "axios": "^1.8.1",
     "child_process": "^1.0.2",
     "cors": "^2.8.5",
-    "express": "^4.21.2",
-    "yt-dlp-exec": "^1.0.2",
+    "express": "^4.21.2", 
     "yt-search": "^2.12.1",
     "ytdl-core": "^4.11.5"
   }
