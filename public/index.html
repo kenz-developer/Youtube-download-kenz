@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YouTube MP3 Downloader</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>YouTube MP3 Downloader</h1>
+    <input type="text" id="searchQuery" placeholder="Cari video...">
+    <button onclick="searchVideo()">Cari</button>
+    <div id="loading" style="display: none;">Loading...</div>
+    <div id="results"></div>
+  </div>
+
+  <script>
+  async function searchVideo() {
+    document.getElementById("loading").style.display = "block";
+    const query = document.getElementById("searchQuery").value;
+    const response = await fetch(`/api/search?q=${query}`);
+    const videos = await response.json();
+    document.getElementById("loading").style.display = "none";
+    
+    let html = "";
+    videos.forEach(video => {
+      html += `
+        <div class="video-result">
+          <img src="${video.thumbnail}" alt="Thumbnail">
+          <div class="video-info">
+            <p><b>${video.title}</b></p>
+            <p>Durasi: ${video.duration}</p>
+          </div>
+          <button onclick="downloadMp3('${video.url}')">Download MP3</button>
+        </div>
+      `;
+    });
+    document.getElementById("results").innerHTML = html;
+  }
+
+  function downloadMp3(url) {
+    window.location.href = `/api/download?url=${encodeURIComponent(url)}`;
+  }
+</script>
+</body>
+</html>

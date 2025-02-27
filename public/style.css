@@ -1,0 +1,58 @@
+body {
+  background: #0f0f0f;
+  color: #00ff99;
+  font-family: 'Arial', sans-serif;
+  text-align: center;
+}
+.container {
+  max-width: 500px;
+  margin: 50px auto;
+  padding: 20px;
+  border: 2px solid #00ff99;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.8);
+}
+input {
+  width: 80%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #00ff99;
+  background: black;
+  color: #00ff99;
+}
+button {
+  background: #00ff99;
+  color: black;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+}
+button:hover {
+  background: #ff0099;
+  color: white;
+}
+#loading {
+  margin-top: 10px;
+  color: yellow;
+}
+.video-result {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  border-bottom: 1px solid #00ff99;
+}
+.video-result img {
+  width: 80px; /* Thumbnail lebih kecil */
+  height: 45px;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+.video-info {
+  flex-grow: 1;
+  text-align: left;
+}
+.video-info p {
+  margin: 0;
+  font-size: 14px;
+}
